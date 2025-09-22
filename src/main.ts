@@ -4,20 +4,22 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 console.log('Script started successfully');
 
-let currentPopup: any = undefined;
-
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
-    console.log('Player tags: ',WA.player.tags)
 
-    WA.room.area.onEnter('clock').subscribe(() => {
-        const today = new Date();
-        const time = today.getHours() + ":" + today.getMinutes();
-        currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
-    })
-
-    WA.room.area.onLeave('clock').subscribe(closePopup)
+    WA.room.area.onEnter("zoneSerre").subscribe(() => {
+        hideRoofSerre();
+    });
+    WA.room.area.onLeave("zoneSerre").subscribe(() => {
+        showRoofSerre();
+    });
+    WA.room.area.onEnter("zoneTente").subscribe(() => {
+        hideRoofTente();
+    });
+    WA.room.area.onLeave("zoneTente").subscribe(() => {
+        showRoofTente();
+    });
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
@@ -26,11 +28,21 @@ WA.onInit().then(() => {
 
 }).catch(e => console.error(e));
 
-function closePopup(){
-    if (currentPopup !== undefined) {
-        currentPopup.close();
-        currentPopup = undefined;
-    }
+const hideRoofSerre = () => {
+    WA.room.hideLayer("Roofs/RoofSerre1");
+    WA.room.hideLayer("Roofs/RoofSerre2");
+}
+const showRoofSerre = () => {
+    WA.room.showLayer("Roofs/RoofSerre1");
+    WA.room.showLayer("Roofs/RoofSerre2");
 }
 
+const hideRoofTente = () => {
+    WA.room.hideLayer("BaseRoofs/RoofTente1");
+    WA.room.hideLayer("Roofs/RoofTente2");
+}
+const showRoofTente = () => {
+    WA.room.showLayer("BaseRoofs/RoofTente1");
+    WA.room.showLayer("Roofs/RoofTente2");
+}
 export {};
