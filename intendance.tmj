@@ -1478,7 +1478,7 @@
                          "value":"zoneMain"
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":128,
                  "x":190,
@@ -1510,7 +1510,7 @@
                          "value":"zoneMeeting1"
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":128,
                  "x":929,
@@ -1542,7 +1542,7 @@
                          "value":"zoneMeeting2"
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":128,
                  "x":830,
@@ -1574,7 +1574,7 @@
                          "value":"zoneMeeting3"
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":128,
                  "x":193,
