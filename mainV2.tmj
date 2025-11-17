@@ -2743,6 +2743,8 @@
                  "y":0
                 }],
          "name":"above",
+         "offsetx":-2,
+         "offsety":0,
          "opacity":1,
          "type":"group",
          "visible":true,
